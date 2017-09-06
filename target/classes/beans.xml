@@ -16,7 +16,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost/curso?" />
+		<property name="url" value="jdbc:mysql://localhost/alquilervehiculos?" />
 		<property name="username" value="root" />
 		<property name="password" value="1111" />
 	</bean>
@@ -25,6 +25,12 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<bean id="CategoriaDAO" class="dao.CategoriaDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="UsuarioDAO" class="dao.UsuarioDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="User_vehiculosDAO" class="dao.User_vehiculosDAO">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 </beans>
