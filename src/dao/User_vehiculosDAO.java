@@ -51,9 +51,10 @@ public class User_vehiculosDAO implements interfaces.IUser_vehiculosDAO {
 	@Override
 	public void update(User_vehiculos user_vehiculo) {
 		// TODO Auto-generated method stub
-		String SQL = "UPDATE vehiculos SET dni=?, fecha_inicio=?, fecha_final=? WHERE id_vehiculo = ?";
+		String SQL = "UPDATE user_vehiculos SET dni=?, fecha_inicio=?, fecha_final=? WHERE id_vehiculo = ?";
 		try {
-			jdbcTemplateObject.update(SQL, user_vehiculo.getDni(), user_vehiculo.getFecha_inicio(), user_vehiculo.getFecha_final(), user_vehiculo.getId_vehiculo());
+			jdbcTemplateObject.update(SQL, user_vehiculo.getDni(), user_vehiculo.getFecha_inicio(),
+					user_vehiculo.getFecha_final(), user_vehiculo.getId_vehiculo());
 			System.out.println("actualizado user_vehiculo");
 		} catch (Exception e) {
 			System.out.println(e);
@@ -64,7 +65,7 @@ public class User_vehiculosDAO implements interfaces.IUser_vehiculosDAO {
 	@Override
 	public List<User_vehiculos> list() {
 		// TODO Auto-generated method stub
-		String SQL = "select * from vehiculos";
+		String SQL = "select * from user_vehiculos";
 		List<User_vehiculos> cats = null;
 		try {
 			cats = jdbcTemplateObject.query(SQL, new User_vehiculosMapper());
