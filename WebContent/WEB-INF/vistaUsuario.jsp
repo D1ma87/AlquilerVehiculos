@@ -3,9 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -13,12 +11,12 @@
     <title>Home | Corlate</title>
 	
 	<!-- core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -38,14 +36,7 @@
             <div class="col-sm-6 navbar-nav">
 			<li>
                 <div class="navbar-header">
-				
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="vistaUsuario.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
 			</li>
             </div><!--/.container-->
@@ -136,21 +127,31 @@
     </section><!--/#main-slider-->
 
 	<header id="headermenu">
-        
-        <nav class="navbar navbar-inverse" role="banner">
-			<div class="col-sm-6"></div>
-            <div class="col-sm-6">
+	
+<nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>                
+                        <li class="active"><a href="vistaUsuario.html">Home</a></li>
+						<li class="active"><a href="misAlquileres.html">Mis Alquileres</a></li>
+						<li class="active"><a href="añadirVehiculo.html">Añadir Vehiculos</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Blog</a></li> 
+                        <li><a href="#">Contact</a></li>  
+						
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-		
     </header><!--/headermenu-->
 
     <section id="services" class="service-item">
@@ -162,77 +163,74 @@
 
             <div class="row">
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="row clearfix">
+				
+					<div class="col-md-4 col-sm-6 ">	
+						<div class=" services-wrap single-profile-top">
+							<div class="media">
+								<div class="pull-left">
+									<img class="media-object" src="images/man1.jpg" alt="">
+								</div>
+								<div class="media-body">
+									<h4>Audi</h4>
+									<h5>A4</h5>
+								</div>
+							</div><!--/.media -->
+							</br>
+							<form action="" value="" id="formalquiler">
+								<label>Fecha Inicio</label>
+								<input type="date" class="" name="fechaini" id="fechaini"></br>
+								<label>Fecha Fin</label>
+								<input type="date" class="" name="fechafin" id="fechafin"></br>
+								<input type="submit" class="btn btn-primary" value="Alquilar" id=""></a>
+							</form>
+						</div>
+					</div><!--/.col-lg-4 -->
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services2.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>
+               <div class="col-md-4 col-sm-6 ">	
+						<div class=" services-wrap single-profile-top">
+							<div class="media">
+								<div class="pull-left">
+									<img class="media-object" src="images/man1.jpg" alt="">
+								</div>
+								<div class="media-body">
+									<h4>Audi</h4>
+									<h5>A4</h5>
+								</div>
+							</div><!--/.media -->
+							</br>
+							<form action="" value="" id="formalquiler">
+								<label>Fecha Inicio</label>
+								<input type="date" class="" name="fechaini" id="fechaini"></br>
+								<label>Fecha Fin</label>
+								<input type="date" class="" name="fechafin" id="fechafin"></br>
+								<input type="submit" class="btn btn-primary" value="Alquilar" id=""></a>
+							</form>
+						</div>
+					</div><!--/.col-lg-4 -->
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services3.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>  
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services4.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services5.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services6.png">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">SEO Marketing</h3>
-                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                        </div>
-                    </div>
-                </div>                                                
+                <div class="col-md-4 col-sm-6 ">	
+						<div class=" services-wrap single-profile-top">
+							<div class="media">
+								<div class="pull-left">
+									<img class="media-object" src="images/man1.jpg" alt="">
+								</div>
+								<div class="media-body">
+									<h4>Audi</h4>
+									<h5>A4</h5>
+								</div>
+							</div><!--/.media -->
+							</br>
+							<form action="" value="" id="formalquiler">
+								<label>Fecha Inicio</label>
+								<input type="date" class="" name="fechaini" id="fechaini"></br>
+								<label>Fecha Fin</label>
+								<input type="date" class="" name="fechafin" id="fechafin"></br>
+								<input type="submit" class="btn btn-primary" value="Alquilar" id=""></a>
+							</form>
+						</div>
+					</div><!--/.col-lg-4 -->
+                                      
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#services-->
@@ -265,11 +263,37 @@
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/jquery.isotope.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/wow.min.js"></script>
 </body>
 </html>
+
+<script>
+
+		$(document).ready(function () {
+            $("form").submit(function () {
+
+                var clikedForm = $(this); // Select Form
+
+                if (clikedForm.find("[name='fechaini']").val() == '') {
+                    alert('Enter Valid date inicio');
+                    return false;
+                }
+                if (clikedForm.find("[name='fechaini']").val() >clikedForm.find("[name='fechafin']").val()) {
+					alert('Fecha inicio mayor que fecha final');
+                    return false;
+                }
+                if (clikedForm.find("[name='fechafin']").val() == '') { 
+					alert('Enter  valid date final');
+                    return false;
+                }
+
+            });
+        });
+	
+	
+</script>

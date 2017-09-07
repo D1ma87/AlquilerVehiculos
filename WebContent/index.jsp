@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<jsp:forward page="login.html"></jsp:forward>
+	<jsp:forward page="vistaUsuario.html"></jsp:forward>
 
 </body>
 </html>
