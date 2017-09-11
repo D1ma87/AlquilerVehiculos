@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -210,12 +211,14 @@
 			<c:forEach var="vehiculo" items="${misVehiculos}">
 			<div class="col-md-4 col-sm-6 ">
 					<form action="" value="" id="formalquiler">
+
 						<div class=" services-wrap single-profile-top">
 							<div class="media">
 								<div class="pull-left">
 									<img class="media-object" src="images/man1.jpg" alt="">
 								</div>
 								<div class="media-body">
+
 									<h4>${vehiculo.marca}</h4>
 									<h5>${vehiculo.modelo}</h5>
 								</div>
@@ -279,10 +282,12 @@
 	<script src="./js/jquery.isotope.min.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="./js/wow.min.js"></script>
+
 </body>
 </html>
 
 <script>
+
 	$(document)
 			.ready(
 					function() {
@@ -312,4 +317,5 @@
 
 										});
 					});
+
 </script>
