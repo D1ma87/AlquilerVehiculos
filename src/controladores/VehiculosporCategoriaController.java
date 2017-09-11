@@ -32,15 +32,22 @@ public class VehiculosporCategoriaController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "/vehiculosCategoria", method = RequestMethod.POST)
-	public String getListReferredPage(@RequestParam int idcat, Model model) {
+	@RequestMapping(value = "/vehiculosCategoria", method = RequestMethod.GET)
+	public String getListReferredPage(@RequestParam("idcat") int idcat, Model model) {
+
 		System.out.println("1-entro a la funccion del get");
 		System.out.println("2-" + idcat);
+		List<Vehiculo> vehiculos = null;
+
 		IVehiculoService vservice = new VehiculoService();
-		List<Vehiculo> vehiculos = vservice.listadoVehiculosxCat(idcat);
+		if (idcat == 0) {
+			vehiculos = vservice.listadoVehiculos();
+		} else {
+			vehiculos = vservice.listadoVehiculosxCat(idcat);
+		}
 		ICategoriaService cservice = new CategoriaService();
 		List<Categoria> categorias = cservice.listadoCategorias();
-		System.out.println("3-lista cargada "+vehiculos.size()+"-vehiculos");
+		System.out.println("3-lista cargada " + vehiculos.size() + "-vehiculos");
 		model.addAttribute("misVehiculos", vehiculos);
 		model.addAttribute("misCategorias", categorias);
 

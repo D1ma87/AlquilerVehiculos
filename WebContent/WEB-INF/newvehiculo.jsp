@@ -32,7 +32,11 @@
 			commandName="datosVehiculo" class="center" name="form">
 			<div class="center">
 				<h3>Categoría:</h3>
-				<form:select path="id_categoria" var="categoria" items="${miscategorias}">
+				
+			<form:select  path="id_categoria" >
+				<c:forEach items="${miscategorias}" var="categoria">
+				<option value="${categoria.getId_categoria() }">${categoria.getDescripcion()}</option>
+				</c:forEach>
 				</form:select>
 				<h3>Marca:</h3>
 				<form:input path="marca" />

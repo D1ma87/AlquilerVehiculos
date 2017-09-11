@@ -34,9 +34,9 @@
 				<h2>Iniciar sesión:</h2>
 					<div class="center">
 							<h3>DNI:</h3>
-							<form:input path="dni" />
+							<form:input path="dni" required="required"/>
 							<h3>Contraseña:</h3>
-							<form:input path="password" type="password" />
+							<form:input path="password" type="password" required="required"/>
 					</div>
 					<div class="center">
 						<input class="btn btn-primary" type="submit" value="Enviar" />

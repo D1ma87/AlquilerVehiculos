@@ -38,6 +38,7 @@ public class AddVehiculoController {
 		
 		ICategoriaService cservice=new CategoriaService();
 		List<Categoria> miscategorias=cservice.listadoCategorias();
+		
 		System.out.println("reference data() miscategSize="+miscategorias.size());
 		referenceData.put("miscategorias", miscategorias);
         mav.addObject("miscategorias", miscategorias);        

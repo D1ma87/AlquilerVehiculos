@@ -41,14 +41,13 @@
 	<div class="col-sm-6 navbar-nav">
 		<li>
 			<div class="navbar-header">
-				<a class="navbar-brand" href="vistaUsuario.html"><img
-					src="images/logo.png" alt="logo"></a>
+				<a class="navbar-brand"><img src="images/logo.png" alt="logo"></a>
 			</div>
 		</li>
 	</div>
 	<!--/.container-->
 	<div class="col-sm-6">
-		<a class="btn btn-primary navbar-right" href="#">Salir</a>
+		<a class="btn btn-primary navbar-right" href="iniciarSesion.html">Salir</a>
 	</div>
 	</nav><!--/nav--> </header>
 	<!--/header-->
@@ -72,8 +71,7 @@
 									amet consectetur adipisicing elit</h1>
 								<h2 class="animation animated-item-2">Accusantium
 									doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-								<a class="btn-slide animation animated-item-3" href="#">Read
-									More</a>
+
 							</div>
 						</div>
 
@@ -98,8 +96,7 @@
 									amet consectetur adipisicing elit</h1>
 								<h2 class="animation animated-item-2">Accusantium
 									doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-								<a class="btn-slide animation animated-item-3" href="#">Read
-									More</a>
+
 							</div>
 						</div>
 
@@ -118,16 +115,7 @@
 				style="background-image: url(images/slider/bg3.jpg)">
 				<div class="container">
 					<div class="row slide-margin">
-						<div class="col-sm-6">
-							<div class="carousel-content">
-								<h1 class="animation animated-item-1">Lorem ipsum dolor sit
-									amet consectetur adipisicing elit</h1>
-								<h2 class="animation animated-item-2">Accusantium
-									doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-								<a class="btn-slide animation animated-item-3" href="#">Read
-									More</a>
-							</div>
-						</div>
+						<div class="col-sm-6"></div>
 						<div class="col-sm-6 hidden-xs animation animated-item-4">
 							<div class="slider-img">
 								<img src="images/slider/img3.png" class="img-responsive">
@@ -159,10 +147,10 @@
 			</button>
 		</div>
 		<!-- variable que ayuda a cargar coches por categoria -->
-		<c:set var = "idcategoria"  value = "${0}"/>
+		<c:set var="idcategoria" value="${0}" />
 		<div class="collapse navbar-collapse navbar-right">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="vistaUsuario.html">Home</a></li>
+				<li class="active"><a href="vehiculosCategoria.html?idcat=0">Inicio</a></li>
 
 				<c:choose>
 
@@ -176,12 +164,10 @@
 					<c:otherwise>
 						<li class="active"><a href="misAlquileres.html">Mis
 								Alquileres</a></li>
-						<c:forEach var="categoria" items="${misCategorias }"><li>
-						<form action="vehiculosCategoria.html" method=POST>
-						<input type="hidden" id="idcat" name="idcat" value="${categoria.id_categoria }">
-						<input type="submit" class="btn btn-primary" value="${categoria.descripcion}"/>
-						</form></li>
-							
+
+						<c:forEach var="categoria" items="${misCategorias }">
+							<li><a
+								href="vehiculosCategoria.html?idcat=${categoria.id_categoria}">${categoria.descripcion}</a>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
@@ -202,34 +188,58 @@
 			</p>
 		</div>
 		<!-- variable que recoje el valor de la categoria -->
-		
+
 		<div class="row">
 
 			<div class="row clearfix">
 
-			<c:forEach var="vehiculo" items="${misVehiculos}">
-			<div class="col-md-4 col-sm-6 ">
-					<form action="" value="" id="formalquiler">
-						<div class=" services-wrap single-profile-top">
-							<div class="media">
-								<div class="pull-left">
-									<img class="media-object" src="images/man1.jpg" alt="">
+				<c:forEach var="vehiculo" items="${misVehiculos}">
+					<div class="col-md-4 col-sm-6 ">
+						<form action="alquiler.html" method="post" id="formalquiler">
+							<div class=" services-wrap single-profile-top">
+								<div class="media">
+									<div class="pull-left">
+										<img class="media-object fotov" src="${vehiculo.fotos }"
+											alt="">
+									</div>
+									<div class="media-body">
+										<h4>${vehiculo.marca}</h4>
+										<h5>${vehiculo.modelo}</h5>
+										</br>
+										<h5 class="text-danger">${vehiculo.precio}€</h5>
+									</div>
 								</div>
-								<div class="media-body">
-									<h4>${vehiculo.marca}</h4>
-									<h5>${vehiculo.modelo}</h5>
-								</div>
+								<!--/.media -->
+								<c:choose>
+									<c:when test="${vehiculo.disponibilidad==0 }">
+										<div class="media-body">
+											<h4 class="text-danger">
+												No disponible
+												<h4>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<br>
+										<label>Fecha Inicio</label>
+										<input type="date" class="" name="fecha_inicio"
+											id="fecha_inicio">
+										</br>
+										<label>Fecha Fin</label>
+										<input type="date" class="" name="fecha_final"
+											id="fecha_final">
+										</br>
+										<input type="hidden" name="dni" id="dni" value="${user.dni }" />
+										<input type="hidden" name="id_vehiculo" id="id_vehiculo"
+											value="${vehiculo.id_vehiculo }" />
+										<input type="submit" class="btn btn-primary" value="Alquilar"
+											id="">
+										</a>
+									</c:otherwise>
+								</c:choose>
 							</div>
-							<!--/.media -->
-							<br> <label>Fecha Inicio</label> <input type="date" class=""
-								name="fechaini" id="fechaini"></br> <label>Fecha Fin</label>
-							<input type="date" class="" name="fechafin" id="fechafin"></br>
-							<input type="submit" class="btn btn-primary" value="Alquilar"
-								id=""></a>
-						</div>
-					</form>
-				</div>
-			</c:forEach>					
+						</form>
+					</div>
+				</c:forEach>
 			</div>
 			<!--/.row-->
 		</div>

@@ -1,5 +1,8 @@
 package controladores;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,59 +11,71 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import beans.User_vehiculos;
 import beans.Usuario;
 import beans.Vehiculo;
 import interfaces.IUser_vehiculoService;
+import interfaces.IVehiculoService;
 import services.User_vehiculoService;
+import services.VehiculoService;
 
 @Controller
 public class AlquilarVehiculoController {
 
-	@ModelAttribute("datosVehiculo") 
-	public Vehiculo populateForm(){
+	@ModelAttribute("datosVehiculo")
+	public Vehiculo populateForm() {
 		System.out.println("populateForm() alquiler");
 		return new Vehiculo();
 	}
-	
-@RequestMapping(value = "/alquiler", method = RequestMethod.GET)
-public String verFormularioAltaProductos(){
-	System.out.println("ver formulario alquiler");
-	return "alquiler";
-}
+
+	@RequestMapping(value = "/alquiler", method = RequestMethod.GET)
+	public String verFormularioAltaProductos() {
+		System.out.println("ver formulario alquiler");
+		return "alquiler";
+	}
 
 	@RequestMapping(value = "/alquiler", method = RequestMethod.POST)
-	public ModelAndView registrarProducto(@ModelAttribute("datosVehiculo") Vehiculo v, HttpServletRequest rq){
+	public ModelAndView registrarProducto(@RequestParam("dni") String dni, @RequestParam("id_vehiculo") int id,
+			@RequestParam("fecha_inicio") String fecha_inicio, @RequestParam("fecha_final") String fecha_final,
+			HttpServletRequest rq) {
 		System.out.println("model view alquiler");
-		System.out.println("vehiculo alquiler " + v.toString());
+		System.out.println(fecha_inicio);
+		DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		Date fecha_inicio1 = null;
+		Date fecha_final1 = null;
+		try {
+			fecha_inicio1 = formatter.parse(fecha_inicio);
+			fecha_final1 = formatter.parse(fecha_final);
 
-		//IVehiculoService ivehiculo = new VehiculoService();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String vista = "vista";
+		ModelAndView modelAndView = new ModelAndView(vista);
+		User_vehiculos userv = new User_vehiculos(dni, id, fecha_inicio1, fecha_final1);
+		IUser_vehiculoService uservice = new User_vehiculoService();
+		uservice.createUser_vehiculo(userv);
+		// se recoje de la pagina
 
-		//Vehiculo vehiculo = ivehiculo.findById(v);
+		IVehiculoService ivehiculo = new VehiculoService();
 
-		IUser_vehiculoService iuservehiculo = new User_vehiculoService();
+		Vehiculo v = new Vehiculo();
 
-		Usuario u = (Usuario) rq.getSession().getAttribute("user");
-		
-		int id = (int) rq.getAttribute("");
+		v.setId_vehiculo(id);
 
-		User_vehiculos userv = new User_vehiculos(u.getDni(), id, new Date(), new Date());
+		v = ivehiculo.findById(v);
 
-		iuservehiculo.createUser_vehiculo(userv);
+		v.setDisponibilidad(0);
 
+		ivehiculo.update(v);
+
+		System.out.println(userv.toString());
 		return new ModelAndView();
 
 	}
-	
-	
+
 }
-
-
-
-
-
-
-
-
