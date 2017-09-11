@@ -8,6 +8,7 @@ public class Usuario {
 		public String nombre;
 		public String apellido;
 		public int administrador;
+		
 		public Usuario(String dni, String password, String email, String nombre, String apellido, int administrador) {
 			super();
 			this.dni = dni;
@@ -56,5 +57,12 @@ public class Usuario {
 		public void setApellido(String apellido) {
 			this.apellido = apellido;
 		}
+		@Override
+		public String toString() {
+			return "Usuario [dni=" + dni + ", password=" + password + ", email=" + email + ", nombre=" + nombre
+					+ ", apellido=" + apellido + ", administrador=" + administrador + "]";
+		}
+		
+		
 		
 }

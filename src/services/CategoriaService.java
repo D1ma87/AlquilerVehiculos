@@ -55,4 +55,12 @@ public class CategoriaService implements ICategoriaService {
 
 	}
 
+
+	@Override
+	public Categoria findByDescripcion(String descripcion) {
+		// TODO Auto-generated method stub
+				Categoria aux=categoriaDAO.findbyDescripcion(descripcion);
+				return aux;
+	}
+
 }
