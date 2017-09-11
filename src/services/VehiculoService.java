@@ -54,4 +54,11 @@ public class VehiculoService implements IVehiculoService {
 
 	}
 
+	@Override
+	public List<Vehiculo> listadoVehiculosxCat(int id_categoria) {
+		// TODO Auto-generated method stub
+				List<Vehiculo> lista=vehiculoDAO.listxCategoria(id_categoria);
+				return lista;
+	}
+
 }

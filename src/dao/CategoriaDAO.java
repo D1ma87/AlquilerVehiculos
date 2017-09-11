@@ -19,44 +19,43 @@ public class CategoriaDAO implements ICategoriaDAO {
 		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
-	
 
 	@Override
 	public Categoria findPrimaryId(Categoria categoria) {
 		// TODO Auto-generated method stub
-				Categoria aux = null;
-				try {
-					String SQL = "select * from categorias where id_categoria=?";
-					aux = jdbcTemplateObject.queryForObject(SQL, new Object[] { categoria.getId_categoria() },
-							new CategoriasMapper());
-				} catch (Exception e) {
-					System.out.println(e);
-				}
-				return aux;
+		Categoria aux = null;
+		try {
+			String SQL = "select * from categorias where id_categoria=?";
+			aux = jdbcTemplateObject.queryForObject(SQL, new Object[] { categoria.getId_categoria() },
+					new CategoriasMapper());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return aux;
 	}
 
 	@Override
 	public void add(Categoria categoria) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-				String SQL = "insert into categorias (id_categoria, descripcion) values (?,?)";
-				try {
-					jdbcTemplateObject.update(SQL, categoria.getId_categoria(), categoria.getDescripcion());
-					System.out.println("Categoria guardada");
-				} catch (Exception e) {
-					System.out.println(e);
-				}
+		String SQL = "insert into categorias (id_categoria, descripcion) values (?,?)";
+		try {
+			jdbcTemplateObject.update(SQL, categoria.getId_categoria(), categoria.getDescripcion());
+			System.out.println("Categoria guardada");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 	}
 
 	@Override
 	public void delete(Categoria categoria) {
 		// TODO Auto-generated method stub
-		String SQL="delete from categorias where id_categoria = ?";
-		try{
+		String SQL = "delete from categorias where id_categoria = ?";
+		try {
 			jdbcTemplateObject.update(SQL, categoria.getId_categoria());
-			System.out.println("borrando categoria"+categoria.getDescripcion());
-		}catch (Exception e) {
+			System.out.println("borrando categoria" + categoria.getDescripcion());
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 
@@ -65,11 +64,11 @@ public class CategoriaDAO implements ICategoriaDAO {
 	@Override
 	public void update(Categoria categoria) {
 		// TODO Auto-generated method stub
-		String SQL="UPDATE categorias SET descripcion=? WHERE id_categoria = ?";
-		try{
+		String SQL = "UPDATE categorias SET descripcion=? WHERE id_categoria = ?";
+		try {
 			jdbcTemplateObject.update(SQL, categoria.getDescripcion(), categoria.getId_categoria());
-			System.out.println("actualizado producto"+categoria.getDescripcion());
-		}catch (Exception e) {
+			System.out.println("actualizado producto" + categoria.getDescripcion());
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 
@@ -78,14 +77,28 @@ public class CategoriaDAO implements ICategoriaDAO {
 	@Override
 	public List<Categoria> list() {
 		// TODO Auto-generated method stub
-		String SQL="select * from categorias";
-		List<Categoria> cats=null;
-		try{
-			cats=jdbcTemplateObject.query(SQL, new CategoriasMapper());
-		}catch (Exception e) {
+		String SQL = "select * from categorias";
+		List<Categoria> cats = null;
+		try {
+			cats = jdbcTemplateObject.query(SQL, new CategoriasMapper());
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return cats;
+	}
+
+	@Override
+	public Categoria findbyDescripcion(String descripcion) {
+		// TODO Auto-generated method stub
+		Categoria aux = null;
+		try {
+			String SQL = "select * from categorias where descripcion=?";
+			aux = jdbcTemplateObject.queryForObject(SQL, new Object[] { descripcion },
+					new CategoriasMapper());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return aux;
 	}
 
 }

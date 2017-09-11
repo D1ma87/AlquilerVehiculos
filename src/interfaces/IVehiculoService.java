@@ -9,11 +9,13 @@ import beans.Usuario;
 import beans.Vehiculo;
 
 public interface IVehiculoService {
-	
+
 	@Transactional
 	public void createVehiculo(Vehiculo vehiculo);
 
 	public List<Vehiculo> listadoVehiculos();
+
+	public List<Vehiculo> listadoVehiculosxCat(int id_categoria);
 
 	public void update(Vehiculo vehiculo);
 

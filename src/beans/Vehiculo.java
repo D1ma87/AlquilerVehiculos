@@ -65,6 +65,12 @@ public class Vehiculo {
 	public void setFotos(String fotos) {
 		this.fotos = fotos;
 	}
+	@Override
+	public String toString() {
+		return "Vehiculo [id_vehiculo=" + id_vehiculo + ", id_categoria=" + id_categoria + ", marca=" + marca
+				+ ", modelo=" + modelo + ", precio=" + precio + ", disponibilidad=" + disponibilidad + ", fotos="
+				+ fotos + "]";
+	}
 	
 	
 	

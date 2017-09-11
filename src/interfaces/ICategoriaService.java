@@ -16,5 +16,7 @@ public interface ICategoriaService {
 
 	public Categoria findById(Categoria categoria);
 
+	public Categoria findByDescripcion(String descripcion);
+
 	public void delete(Categoria categoria);
 }

@@ -90,4 +90,18 @@ public class VehiculoDAO implements IVehiculoDAO {
 		return cats;
 	}
 
+	@Override
+	public List<Vehiculo> listxCategoria( int id_categoria) {
+		// TODO Auto-generated method stub
+		String SQL = "select * from vehiculos where id_categoria=?";
+		List<Vehiculo> cats = null;
+		try {
+			cats = jdbcTemplateObject.query(SQL, new Object[] { id_categoria },
+					new VehiculosMapper());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return cats;
+	}
+
 }
