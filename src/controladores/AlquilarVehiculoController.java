@@ -34,7 +34,7 @@ public class AlquilarVehiculoController {
 	@RequestMapping(value = "/alquiler", method = RequestMethod.GET)
 	public String verFormularioAltaProductos() {
 		System.out.println("ver formulario alquiler");
-		return "alquiler";
+		return "misAlquileres";
 	}
 
 	@RequestMapping(value = "/alquiler", method = RequestMethod.POST)
@@ -54,7 +54,7 @@ public class AlquilarVehiculoController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String vista = "vista";
+		String vista = "misAlquileres";
 		ModelAndView modelAndView = new ModelAndView(vista);
 		User_vehiculos userv = new User_vehiculos(dni, id, fecha_inicio1, fecha_final1);
 		IUser_vehiculoService uservice = new User_vehiculoService();

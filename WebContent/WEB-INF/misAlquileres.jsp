@@ -5,17 +5,191 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Home | Corlate</title>
+
+<!-- core CSS -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/font-awesome.min.css" rel="stylesheet">
+<link href="./css/animate.min.css" rel="stylesheet">
+<link href="./css/prettyPhoto.css" rel="stylesheet">
+<link href="./css/main.css" rel="stylesheet">
+<link href="./css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
-<body>
-<c:forEach items="${vehiculosAlquilados }" var="v">
-		<tr>
-			<td>id producto</td>
-			<td>
-			<c:out value="${v.getDni() }"/>
-			</td>
-		</tr>
-	</c:forEach>
+<!--/head-->
+
+<body class="homepage">
+
+	<header id="header"> <nav class="navbar navbar-inverse"
+		role="banner">
+	<div class="col-sm-6 navbar-nav">
+		<li>
+			<div class="navbar-header">
+				<a class="navbar-brand"><img src="images/logo.png" alt="logo"></a>
+			</div>
+		</li>
+	</div>
+	<!--/.container-->
+	<div class="col-sm-6">
+		<a class="btn btn-primary navbar-right" href="iniciarSesion.html">Salir</a>
+	</div>
+	</nav><!--/nav--> </header>
+	<!--/header-->
+
+	<header id="headermenu"> <nav class="navbar navbar-inverse"
+		role="banner">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+		</div>
+		<!-- variable que ayuda a cargar coches por categoria -->
+		<c:set var="idcategoria" value="${0}" />
+		<div class="collapse navbar-collapse navbar-right">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="vehiculosCategoria.html?idcat=0">Inicio</a></li>
+
+				<c:choose>
+
+					<c:when test="${user.administrador==1 }">
+						<li class="active"><a href="addvehiculo.html">Añadir
+								Vehiculo</a></li>
+						<li class="active"><a href="addcategoria.html">Añadir
+								Categoria</a></li>
+					</c:when>
+
+					<c:otherwise>
+						<li class="active"><a href="misAlquileres.html">Mis
+								Alquileres</a></li>
+
+						<c:forEach var="categoria" items="${misCategorias }">
+							<li><a
+								href="vehiculosCategoria.html?idcat=${categoria.id_categoria}">${categoria.descripcion}</a>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</ul>
+		</div>
+	</div>
+	<!--/.container--> </nav><!--/nav--> </header>
+	<!--/headermenu-->
+
+	<section id="partner" class="service-item">
+	<div class="container">
+		<div class="center">
+			<h2>Tus Alquileres</h2>
+			<p class="lead">
+				Aquí puedes ver todos los alquileres de vehiculos que has realizado,</br> asi como las fechas en los que los alquilaste.
+			</p>
+		</div>
+		<!-- variable que recoje el valor de la categoria -->
+
+		<div class="row">
+
+			<div class="row clearfix">
+
+				<c:forEach var="uservehiculo" items="${vehiculosAlquilados}">
+					<div class="col-md-4 col-sm-6 ">
+						<form action="alquiler.html" method="post" id="formalquiler">
+							<div class=" services-wrap single-profile-top">
+							<c:forEach var="vehiculo" items="${vehiculos }">
+								<c:choose>
+									<c:when test="${uservehiculo.id_vehiculo==vehiculo.id_vehiculo}">
+									<div class="media">
+										<div class="pull-left">
+											<img class="media-object fotov" src="${vehiculo.getFotos() }"
+												alt="">
+										</div>
+										<div class="media-body">
+											<h4>${vehiculo.marca }</h4>
+											<h5>${vehiculo.modelo }</h5>
+											</br>
+											<h5 class="text-danger">${vehiculo.precio }€</h5>
+										</div>
+									</div>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+								<!--/.media -->
+								<div class="media-body">
+										<br>
+										<h5>Fecha Inicio</h5>
+										<h5>${uservehiculo.getFecha_inicio() }</h5>
+										</br>
+										<h5>Fecha Fin</h5>
+										<h5>${uservehiculo.getFecha_final() }</h5>
+										</br>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</c:forEach>
+			</div>
+			<!--/.row-->
+		</div>
+		<!--/.container-->
+	</section>
+	<!--/#services-->
+
+	<section id="conatcat-info">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="media contact-info wow fadeInDown"
+					data-wow-duration="1000ms" data-wow-delay="600ms">
+					<div class="pull-left">
+						<i class="fa fa-phone"></i>
+					</div>
+					<div class="media-body">
+						<h2>¿Tiene alguna duda?</h2>
+						<p>Llama al servicio de asistencia. Estaremos encantados en resolver sus dudas </br> Teléfono: 4852554854</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/.container--> </section>
+	<!--/#conatcat-info-->
+
+	<footer id="footer" class="midnight-blue">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
+				All Rights Reserved.
+			</div>
+		</div>
+	</div>
+	</footer>
+	<!--/#footer-->
+
+	<script src="./js/jquery.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery.prettyPhoto.js"></script>
+	<script src="./js/jquery.isotope.min.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/wow.min.js"></script>
 </body>
 </html>

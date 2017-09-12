@@ -33,6 +33,7 @@ public class InicioSesionController {
 
 	@RequestMapping(value = "/iniciarSesion", method = RequestMethod.GET)
 	public String verFormularioAltaProductos(HttpServletRequest request) {
+	
 		System.out.println("ver formulario inicio");
 		HttpSession session= request.getSession(false);
 		session.invalidate();
@@ -56,7 +57,7 @@ public class InicioSesionController {
 			}
 		}
 		String vista = "";
-
+		String mensaje="";
 		System.out.println("user bbdd " + user.toString());
 
 		IVehiculoService vservice = new VehiculoService();
@@ -75,6 +76,7 @@ public class InicioSesionController {
 		} else {
 			System.out.println("no existe");
 			vista = "iniciarSesion";
+			mensaje="Error al iniciar sesión";
 
 		}
 
@@ -82,6 +84,7 @@ public class InicioSesionController {
 		ModelAndView modelAndView = new ModelAndView(vista);
 
 		modelAndView.addObject("misVehiculos", vehiculos);
+		modelAndView.addObject("mensaje", mensaje);
 		modelAndView.addObject("misCategorias", categorias);
 		return modelAndView;
 	}

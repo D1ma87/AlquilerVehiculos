@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>Home | Corlate</title>
+<title>AlquilerVehiculos</title>
 <!-- core CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/font-awesome.min.css" rel="stylesheet">
@@ -60,8 +60,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				&copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
-					title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
 				All Rights Reserved.
 			</div>
 		</div>

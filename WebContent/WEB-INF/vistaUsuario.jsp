@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Home | Corlate</title>
+<title>AlquilerVehiculos </title>
 
 <!-- core CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -67,10 +67,7 @@
 					<div class="row slide-margin">
 						<div class="col-sm-6">
 							<div class="carousel-content">
-								<h1 class="animation animated-item-1">Lorem ipsum dolor sit
-									amet consectetur adipisicing elit</h1>
-								<h2 class="animation animated-item-2">Accusantium
-									doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+								<h1 class="animation animated-item-1">Alquila tus vehiculos favoritos de forma rápida y segura</h1>
 
 							</div>
 						</div>
@@ -92,11 +89,7 @@
 					<div class="row slide-margin">
 						<div class="col-sm-6">
 							<div class="carousel-content">
-								<h1 class="animation animated-item-1">Lorem ipsum dolor sit
-									amet consectetur adipisicing elit</h1>
-								<h2 class="animation animated-item-2">Accusantium
-									doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-
+								<h1 class="animation animated-item-1">Los mejores vehículos al mejor precio</h1>
 							</div>
 						</div>
 
@@ -180,11 +173,9 @@
 	<section id="partner" class="service-item">
 	<div class="container">
 		<div class="center">
-			<h2>Our Service</h2>
+			<h2>Vehículos disponibles</h2>
 			<p class="lead">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-				eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut
-				enim ad minim veniam
+				Selecciona la fecha en la que quieres alquilar un vehículo.
 			</p>
 		</div>
 		<!-- variable que recoje el valor de la categoria -->
@@ -220,11 +211,11 @@
 									</c:when>
 									<c:otherwise>
 										<br>
-										<label>Fecha Inicio</label>
+										<h5>Fecha Inicio</h5>
 										<input type="date" class="" name="fecha_inicio"
 											id="fecha_inicio">
 										</br>
-										<label>Fecha Fin</label>
+										<h5>Fecha Fin</h5>
 										<input type="date" class="" name="fecha_final"
 											id="fecha_final">
 										</br>
@@ -233,7 +224,7 @@
 											value="${vehiculo.id_vehiculo }" />
 										<input type="submit" class="btn btn-primary" value="Alquilar"
 											id="">
-										</a>
+									
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -257,11 +248,8 @@
 						<i class="fa fa-phone"></i>
 					</div>
 					<div class="media-body">
-						<h2>Have a question or need a custom quote?</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation +0123 456 70
-							80</p>
+						<h2>¿Tiene alguna duda?</h2>
+						<p>Llama al servicio de asistencia. Estaremos encantados en resolver sus dudas </br> Teléfono: 4852554854</p>
 					</div>
 				</div>
 			</div>
@@ -274,8 +262,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				&copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
-					title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
 				All Rights Reserved.
 			</div>
 		</div>
