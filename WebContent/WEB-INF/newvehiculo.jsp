@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>Home | Corlate</title>
+<title>AlquilerVehiculos</title>
 <!-- core CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/font-awesome.min.css" rel="stylesheet">
@@ -32,7 +32,11 @@
 			commandName="datosVehiculo" class="center" name="form">
 			<div class="center">
 				<h3>Categoría:</h3>
-				<form:select path="id_categoria" var="categoria" items="${miscategorias}">
+				
+			<form:select  path="id_categoria" >
+				<c:forEach items="${miscategorias}" var="categoria">
+				<option value="${categoria.getId_categoria() }">${categoria.getDescripcion()}</option>
+				</c:forEach>
 				</form:select>
 				<h3>Marca:</h3>
 				<form:input path="marca" />
@@ -52,7 +56,7 @@
 		</form:form>
 
 		<div class="center">
-			<a class="btn btn-primary" href="index.jsp">Cancelar</a>
+			<a class="btn btn-primary" href="javascript:window.history.back()">Cancelar</a>
 		</div>
 	</div>
 
@@ -62,8 +66,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				&copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
-					title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
 				All Rights Reserved.
 			</div>
 		</div>

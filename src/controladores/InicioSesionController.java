@@ -3,6 +3,7 @@ package controladores;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,12 +27,16 @@ public class InicioSesionController {
 	@ModelAttribute("datosUsuario")
 	public Usuario populateForm() {
 		System.out.println("populateForm()");
+		
 		return new Usuario();
 	}
 
 	@RequestMapping(value = "/iniciarSesion", method = RequestMethod.GET)
-	public String verFormularioAltaProductos() {
+	public String verFormularioAltaProductos(HttpServletRequest request) {
+	
 		System.out.println("ver formulario inicio");
+		HttpSession session= request.getSession(false);
+		session.invalidate();
 		return "iniciarSesion";
 	}
 
@@ -52,7 +57,7 @@ public class InicioSesionController {
 			}
 		}
 		String vista = "";
-
+		String mensaje="";
 		System.out.println("user bbdd " + user.toString());
 
 		IVehiculoService vservice = new VehiculoService();
@@ -71,6 +76,7 @@ public class InicioSesionController {
 		} else {
 			System.out.println("no existe");
 			vista = "iniciarSesion";
+			mensaje="Error al iniciar sesión";
 
 		}
 
@@ -78,6 +84,7 @@ public class InicioSesionController {
 		ModelAndView modelAndView = new ModelAndView(vista);
 
 		modelAndView.addObject("misVehiculos", vehiculos);
+		modelAndView.addObject("mensaje", mensaje);
 		modelAndView.addObject("misCategorias", categorias);
 		return modelAndView;
 	}

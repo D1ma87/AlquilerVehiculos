@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>AlquilerVehiculos</title>
+<title>Home | Corlate</title>
 
 <!-- core CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -97,13 +97,58 @@
 	<section id="partner" class="service-item">
 	<div class="container">
 		<div class="center">
-			<h2>Alquilado</h2>
+			<h2>Tus Alquileres</h2>
 			<p class="lead">
-				Tu alquiler se ha realizado correctamente.
+				Aquí puedes ver todos los alquileres de vehiculos que has realizado,</br> asi como las fechas en los que los alquilaste.
 			</p>
-			<a class="btn btn-primary" href="misAlquileres.html">Mis Alquileres</a>
 		</div>
+		<!-- variable que recoje el valor de la categoria -->
 
+		<div class="row">
+
+			<div class="row clearfix">
+
+				<c:forEach var="uservehiculo" items="${vehiculosAlquilados}">
+					<div class="col-md-4 col-sm-6 ">
+						<form action="alquiler.html" method="post" id="formalquiler">
+							<div class=" services-wrap single-profile-top">
+							<c:forEach var="vehiculo" items="${vehiculos }">
+								<c:choose>
+									<c:when test="${uservehiculo.id_vehiculo==vehiculo.id_vehiculo}">
+									<div class="media">
+										<div class="pull-left">
+											<img class="media-object fotov" src="${vehiculo.getFotos() }"
+												alt="">
+										</div>
+										<div class="media-body">
+											<h4>${vehiculo.marca }</h4>
+											<h5>${vehiculo.modelo }</h5>
+											</br>
+											<h5 class="text-danger">${vehiculo.precio }€</h5>
+										</div>
+									</div>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+								<!--/.media -->
+								<div class="media-body">
+										<br>
+										<h5>Fecha Inicio</h5>
+										<h5>${uservehiculo.getFecha_inicio() }</h5>
+										</br>
+										<h5>Fecha Fin</h5>
+										<h5>${uservehiculo.getFecha_final() }</h5>
+										</br>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</c:forEach>
+			</div>
+			<!--/.row-->
+		</div>
+		<!--/.container-->
 	</section>
 	<!--/#services-->
 

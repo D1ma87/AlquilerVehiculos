@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>Home | Corlate</title>
+<title>AlquilerVehiculos</title>
 <!-- core CSS -->
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/font-awesome.min.css" rel="stylesheet">
@@ -29,17 +29,17 @@
 			commandName="datosUsuario" class="center" name="form" id="form">
 			<div class="center">
 				<h3>DNI:</h3>
-				<form:input path="dni" />
+				<form:input path="dni" required="required"/>
 				<h3>Nombre:</h3>
-				<form:input path="nombre" />
+				<form:input path="nombre" required="required"/>
 				<h3>Apellido:</h3>
-				<form:input path="apellido" />
+				<form:input path="apellido" required="required"/>
 				<h3>Email:</h3>
-				<form:input path="email" />
+				<form:input path="email" required="required"/>
 				<h3>Contraseña:</h3>
-				<form:input path="password" type="password" />
+				<form:input path="password" type="password" required="required"/>
 				<h3>Repetir Contraseña:</h3>
-				<td><input type="password" id="repass" name="repass" />
+				<td><input type="password" id="repass" name="repass" required="required"/>
 			</div>
 			<div class="center">
 				<input class="btn btn-primary" type="submit" value="Enviar" />
@@ -60,8 +60,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				&copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
-					title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
 				All Rights Reserved.
 			</div>
 		</div>
@@ -102,11 +102,11 @@
 		function validar_pass(pass1, pass2) {
 			//condiciones dentro de la función
 			if (pass1 != pass2) {
-				alert("No coinciden");
+				alert("No coinciden las contraseñas");
 				return false;
 			}
 			if (pass1.length == 0 || pass1 == "") {
-				alert("pass1 vacio");
+				alert("Introduce contraseña");
 				return false;
 			}
 			if (pass1.length<6 || pass1.length>10) {
@@ -114,7 +114,7 @@
 				return false;
 			}
 			if (valor1.length != 0 && valor1 == valor2) {
-				alert("pass guardado");
+				alert("Contraseña guardada");
 				return true;
 			}
 		};
@@ -141,7 +141,7 @@
 											function() {
 												if (validar_dni_nif_nie($(
 														"#dni").val()) == false) {
-													alert("NO es válido");
+													alert("El DNI/NIF no es válido");
 													return false;
 												} else if (validar_email($(
 														"#email").val()) == false) {

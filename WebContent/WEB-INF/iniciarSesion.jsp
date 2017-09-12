@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
- <title>Home | Corlate</title>
+ <title>AlquilerVehiculos</title>
 	<!-- core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/font-awesome.min.css" rel="stylesheet">
@@ -33,10 +33,13 @@
 			<form:form method="post" action="iniciarSesion.html" commandName="datosUsuario" class="center">
 				<h2>Iniciar sesión:</h2>
 					<div class="center">
+						<label class="text-danger">${mensaje }</label>
+					</div>
+					<div class="center">
 							<h3>DNI:</h3>
-							<form:input path="dni" />
+							<form:input path="dni" required="required"/>
 							<h3>Contraseña:</h3>
-							<form:input path="password" type="password" />
+							<form:input path="password" type="password" required="required"/>
 					</div>
 					<div class="center">
 						<input class="btn btn-primary" type="submit" value="Enviar" />
@@ -54,8 +57,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                </div>
+				&copy; 2017 <a target="_blank" href="http://shapebootstrap.net/"
+					title="AlquilerVehiculos">AlquilerVehiculos</a>.
+				All Rights Reserved.
+			</div>
             </div>
         </div>
     </footer><!--/#footer-->
